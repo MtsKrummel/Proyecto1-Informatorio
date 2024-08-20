@@ -1,0 +1,104 @@
+.quick-picks-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  transition: transform 0.3s ease-in-out;
+  overflow-x: hidden; /* Oculta el desbordamiento horizontal */
+}
+.quick-picks-container {
+  overflow: hidden; /* Oculta cualquier desplazamiento */
+  display: flex; /* Asegura que los componentes estén alineados horizontalmente */
+  flex-wrap: nowrap; /* Impide que los elementos se envuelvan */
+}
+
+.quick-pick-card {
+  flex: 0 0 auto; /* Asegura que las tarjetas no se redimensionen */
+}
+
+
+.quick-pick-card {
+  flex: 0 0 80%; /* Ocupa un 80% del contenedor, ajusta según prefieras */
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 500px) {
+
+  .quick-pick-card {
+    flex: 0 0 100%; /* Ocupa el 100% en la pantalla móvil */
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+  }
+
+  .quick-pick-card + .quick-pick-card {
+    z-index: 0;
+    margin-left: -60%; /* Superposición del siguiente elemento */
+    opacity: 0.5; /* Opacidad reducida para el elemento detrás */
+    transform: scale(0.8);
+  }
+
+  .quick-pick-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+}
+
+@media (min-width: 500px) {
+  .relative .absolute {
+    display: none;
+  }
+}
+
+.relative .quick-picks-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1200px) {
+  .relative .quick-picks-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .relative .quick-picks-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.quick-pick-card:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .relative .quick-picks-container{
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1000px) {
+  .albums .albums-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .albums .albums-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .albums .albums-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
